@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    # Roll every action bump into one PR per month instead of one PR per action.
+    groups:
+      actions:
+        patterns:
+          - "*"
