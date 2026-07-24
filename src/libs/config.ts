@@ -1,4 +1,4 @@
-import yaml from 'js-yaml';
+import { load } from 'js-yaml';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
@@ -10,7 +10,7 @@ export function getDynamicConfig(): LinksConfig {
     const __dirname = dirname(__filename);
     const configPath = join(__dirname, '../config/links.yaml');
     const configFile = readFileSync(configPath, 'utf8');
-    return yaml.load(configFile) as LinksConfig;
+    return load(configFile) as LinksConfig;
 }
 
 export function getConfig(): LinksConfig {
